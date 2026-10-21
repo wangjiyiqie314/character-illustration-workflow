@@ -1,0 +1,117 @@
+{
+  "schema_version": 2,
+  "stage_order": [
+    "direct",
+    "lineart",
+    "flat",
+    "lighting",
+    "refine"
+  ],
+  "workflow": "direct_first",
+  "anchor_stages": [
+    "direct",
+    "lineart",
+    "flat"
+  ],
+  "planned_images": 5,
+  "repair_limit": 2,
+  "asset_id": "EXAMPLE_CHARACTER",
+  "display_title": "原创角色示例",
+  "style_version": "EXAMPLE_STYLE",
+  "attributes": [
+    "原创成年角色"
+  ],
+  "purpose": "阶段流程练习",
+  "retouch": "未执行人工修绘",
+  "candidates": [
+    {
+      "id": "DIRECT_V3",
+      "stage": "direct",
+      "kind": "image",
+      "reference_specs": [],
+      "label": "完整成图",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "绘制原创成年旅行者的完整插画，服装与道具简洁，焦点明确。"
+    },
+    {
+      "id": "LINE_V3",
+      "stage": "lineart",
+      "kind": "image",
+      "reference_specs": [
+        {
+          "stage": "direct",
+          "role": "edit_target_and_source_anchor"
+        }
+      ],
+      "label": "线稿",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "将已选设计表达为黑白结构线稿，保留脸、手和服装连接。"
+    },
+    {
+      "id": "FLAT_V3",
+      "stage": "flat",
+      "kind": "image",
+      "reference_specs": [
+        {
+          "stage": "lineart",
+          "role": "edit_target_and_line_anchor"
+        },
+        {
+          "stage": "direct",
+          "role": "source_identity_design_palette_anchor"
+        }
+      ],
+      "label": "平涂",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "依据合格线稿划分固有色，保持服装边界，不加入光照效果。"
+    },
+    {
+      "id": "LIGHT_V3",
+      "stage": "lighting",
+      "kind": "image",
+      "reference_specs": [
+        {
+          "stage": "flat",
+          "role": "edit_target_and_color_anchor"
+        },
+        {
+          "stage": "direct",
+          "role": "source_identity_pose_depth_anchor"
+        },
+        {
+          "stage": "lineart",
+          "role": "line_design_anchor"
+        }
+      ],
+      "label": "光影",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "基于已选线稿与平涂添加一致光影，区分皮肤、布料与金属。"
+    },
+    {
+      "id": "FINAL_V3",
+      "stage": "refine",
+      "kind": "image",
+      "reference_specs": [
+        {
+          "stage": "lighting",
+          "role": "edit_target"
+        },
+        {
+          "stage": "direct",
+          "role": "source_identity_pose_detail_anchor"
+        },
+        {
+          "stage": "lineart",
+          "role": "line_design_anchor"
+        },
+        {
+          "stage": "flat",
+          "role": "color_anchor"
+        }
+      ],
+      "label": "精修",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "检查并修正已记录缺陷，保持身份、构图和固有色。"
+    }
+  ]
+}

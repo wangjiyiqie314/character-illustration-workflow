@@ -1,0 +1,149 @@
+{
+  "schema_version": 2,
+  "stage_order": [
+    "pose",
+    "structure",
+    "detail",
+    "scene",
+    "flat",
+    "lighting",
+    "refine"
+  ],
+  "planned_images": 7,
+  "repair_limit": 2,
+  "asset_id": "EXAMPLE_CHARACTER",
+  "display_title": "原创角色示例",
+  "style_version": "EXAMPLE_STYLE",
+  "attributes": [
+    "原创成年角色"
+  ],
+  "purpose": "阶段流程练习",
+  "retouch": "未执行人工修绘",
+  "candidates": [
+    {
+      "id": "POSE_V2",
+      "stage": "pose",
+      "kind": "image",
+      "reference_specs": [],
+      "label": "动作体块",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "用黑白大形表达站姿、重心和关节关系，不添加颜色。"
+    },
+    {
+      "id": "STRUCTURE_V2",
+      "stage": "structure",
+      "kind": "image",
+      "reference_specs": [
+        {
+          "stage": "pose",
+          "role": "pose_anchor"
+        }
+      ],
+      "label": "结构线稿",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "依据已选姿态整理人体结构和衣物连接，保持黑白。"
+    },
+    {
+      "id": "DETAIL_V2",
+      "stage": "detail",
+      "kind": "image",
+      "reference_specs": [
+        {
+          "stage": "structure",
+          "role": "edit_target"
+        },
+        {
+          "stage": "pose",
+          "role": "pose_anchor"
+        }
+      ],
+      "label": "细化线稿",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "细化五官、手部和服装结构，用少量主褶表达受力。"
+    },
+    {
+      "id": "SCENE_V2",
+      "stage": "scene",
+      "kind": "image",
+      "reference_specs": [
+        {
+          "stage": "detail",
+          "role": "edit_target"
+        },
+        {
+          "stage": "pose",
+          "role": "pose_anchor"
+        }
+      ],
+      "label": "场景线稿",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "完成线稿中的空间关系与必要环境，保持角色设计。"
+    },
+    {
+      "id": "FLAT_V2",
+      "stage": "flat",
+      "kind": "image",
+      "reference_specs": [
+        {
+          "stage": "scene",
+          "role": "edit_target"
+        },
+        {
+          "stage": "pose",
+          "role": "pose_anchor"
+        }
+      ],
+      "label": "平涂",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "依据合格线稿划分固有色，保持服装边界，不加入光照效果。"
+    },
+    {
+      "id": "LIGHT_V2",
+      "stage": "lighting",
+      "kind": "image",
+      "reference_specs": [
+        {
+          "stage": "flat",
+          "role": "edit_target"
+        },
+        {
+          "stage": "pose",
+          "role": "pose_anchor"
+        },
+        {
+          "stage": "scene",
+          "role": "design_anchor"
+        }
+      ],
+      "label": "光影",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "基于已选线稿与平涂添加一致光影，区分皮肤、布料与金属。"
+    },
+    {
+      "id": "FINAL_V2",
+      "stage": "refine",
+      "kind": "image",
+      "reference_specs": [
+        {
+          "stage": "lighting",
+          "role": "edit_target"
+        },
+        {
+          "stage": "pose",
+          "role": "pose_anchor"
+        },
+        {
+          "stage": "scene",
+          "role": "design_anchor"
+        },
+        {
+          "stage": "flat",
+          "role": "color_anchor"
+        }
+      ],
+      "label": "精修",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "检查并修正已记录缺陷，保持身份、构图和固有色。"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+import {scratchDirectory} from './temp.mjs';
+import assert from 'node:assert/strict';
+import {ready,choose,ORDER} from '../tools/deliver.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import {spawnSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+function fixture(mode='demo') {
+  return {mode,stages:Object.fromEntries(ORDER.map(s=>[s,{candidates:[s+'_A',s+'_B'],selection:null}])),artifacts:Object.fromEntries(ORDER.flatMap(s=>['A','B'].map(c=>[s+'_'+c,{kind:'text',stale:false}])))};
+}
+const s=fixture();
+assert.throws(()=>ready(s,'lineart'),/Previous stage/);
+choose(s,'brief','brief_A','角色可读');
+choose(s,'composition','composition_A','构图可读');
+s.artifacts.lineart_A={kind:'image',file:'real.png',qa:{hard_fail:['结构错误']},stale:false};
+assert.throws(()=>choose(s,'lineart','lineart_A','不能选'),/hard failures/);
+s.artifacts.lineart_A.qa.hard_fail=[];
+choose(s,'lineart','lineart_A','已查看参考图');
+s.artifacts.lineart_A.qa.hard_fail=['后续检查发现结构问题'];
+assert.throws(()=>ready(s,'flat'),/no longer passes QA/);
+s.artifacts.lineart_A.qa.hard_fail=[];
+choose(s,'flat','flat_A','颜色可读');
+choose(s,'composition','composition_B','修改构图');
+assert.equal(s.stages.lineart.selection.stale,true);
+assert.equal(s.artifacts.flat_A.stale,true);
+assert.throws(()=>ready(s,'flat'),/Previous stage/);
+assert.throws(()=>choose(s,'lineart','lineart_A','过期'),/stale/);
+const r=fixture('review');
+assert.throws(()=>choose(r,'brief','brief_A','无用户选择'),/evidence/);
+choose(r,'brief','brief_A','用户已选','用户消息：选择A');
+assert.equal(r.stages.brief.selection.selected_by,'human');
+const d=fixture();choose(d,'brief','brief_A','示例自动选择');
+assert.equal(d.stages.brief.selection.selected_by,'agent_demo');
+assert.throws(()=>choose(d,'composition','refine_A','错误阶段'),/belong/);
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+for(const demo of [false,true]) {
+  const scratch=scratchDirectory(path.join(root,'tests'),'scratch-');
+  fs.mkdirSync(path.join(scratch,'tools'));
+  for(const name of ['deliver.mjs','recipes.json','gallery-v2.mjs'])fs.copyFileSync(path.join(root,'tools',name),path.join(scratch,'tools',name));
+  const call=spawnSync(process.execPath,[path.join(scratch,'tools','deliver.mjs'),'init',...(demo?['--demo']:[])],{encoding:'utf8'});
+  assert.equal(call.status,0,call.stderr);
+  const created=JSON.parse(fs.readFileSync(path.join(scratch,'demo-postal-girl','project.json'),'utf8'));
+  assert.equal(created.mode,demo?'demo':'review');
+  assert.equal(Boolean(created.stages.brief.selection),demo);
+  const premature=spawnSync(process.execPath,[path.join(scratch,'tools','deliver.mjs'),'prompt','LINE_A'],{encoding:'utf8'});
+  assert.equal(premature.status,demo?0:1);
+  const promptInput=path.join(scratch,'new-prompt.txt');fs.writeFileSync(promptInput,'新的线稿提示词：只改变线条。');
+  const revise=spawnSync(process.execPath,[path.join(scratch,'tools','deliver.mjs'),'set-prompt','LINE_A',promptInput],{encoding:'utf8'});
+  assert.equal(revise.status,0,revise.stderr);
+  const changed=JSON.parse(fs.readFileSync(path.join(scratch,'demo-postal-girl','project.json'),'utf8'));
+  assert.equal(changed.artifacts.LINE_A.prompt,'新的线稿提示词：只改变线条。');
+  assert.ok(fs.readdirSync(path.join(scratch,'demo-postal-girl','prompts')).some(name=>name.startsWith('LINE_A-previous-')));
+  changed.artifacts.LINE_A.file='test-only.png';
+  fs.writeFileSync(path.join(scratch,'demo-postal-girl','project.json'),JSON.stringify(changed));
+  const forbidden=spawnSync(process.execPath,[path.join(scratch,'tools','deliver.mjs'),'set-prompt','LINE_A',promptInput],{encoding:'utf8'});
+  assert.equal(forbidden.status,1);
+}
+console.log('PASS: readiness, QA failure rejection, post-selection QA failure rejection, upstream invalidation, stale rejection, review evidence, demo provenance, stage membership, fresh CLI review default, explicit demo opt-in, prompt revision archive, generated-prompt immutability');

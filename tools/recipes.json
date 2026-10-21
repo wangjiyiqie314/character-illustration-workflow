@@ -1,0 +1,192 @@
+{
+  "asset_id": "EXAMPLE_CHARACTER",
+  "display_title": "原创角色示例",
+  "style_version": "EXAMPLE_STYLE",
+  "attributes": [
+    "原创成年角色"
+  ],
+  "purpose": "阶段流程练习",
+  "retouch": "未执行人工修绘",
+  "candidates": [
+    {
+      "id": "BRIEF_A",
+      "stage": "brief",
+      "kind": "text",
+      "parent": null,
+      "label": "角色设定",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "设计一个原创成年旅行者。用途是角色设定展示。补充内容作为设计提案，等待选择。"
+    },
+    {
+      "id": "BRIEF_B",
+      "stage": "brief",
+      "kind": "text",
+      "parent": null,
+      "label": "角色设定",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "设计一个原创成年旅行者。用途是角色设定展示。补充内容作为设计提案，等待选择。"
+    },
+    {
+      "id": "BRIEF_C",
+      "stage": "brief",
+      "kind": "text",
+      "parent": null,
+      "label": "角色设定",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "设计一个原创成年旅行者。用途是角色设定展示。补充内容作为设计提案，等待选择。"
+    },
+    {
+      "id": "COMP_A",
+      "stage": "composition",
+      "kind": "text",
+      "parent": "BRIEF_A",
+      "label": "构图方案",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "提出清楚的全身构图，双脚可见，保持手部与随身物品连接合理。"
+    },
+    {
+      "id": "COMP_B",
+      "stage": "composition",
+      "kind": "text",
+      "parent": "BRIEF_A",
+      "label": "构图方案",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "提出清楚的全身构图，双脚可见，保持手部与随身物品连接合理。"
+    },
+    {
+      "id": "COMP_C",
+      "stage": "composition",
+      "kind": "text",
+      "parent": "BRIEF_A",
+      "label": "构图方案",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "提出清楚的全身构图，双脚可见，保持手部与随身物品连接合理。"
+    },
+    {
+      "id": "BASELINE",
+      "stage": "baseline",
+      "kind": "image",
+      "parent": null,
+      "label": "独立基线",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "独立绘制原创成年旅行者，用作探索性比较，不宣称优劣。"
+    },
+    {
+      "id": "LINE_A",
+      "stage": "lineart",
+      "kind": "image",
+      "parent": "COMP_B",
+      "label": "线稿",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "将已选设计表达为黑白结构线稿，保留脸、手和服装连接。"
+    },
+    {
+      "id": "LINE_B",
+      "stage": "lineart",
+      "kind": "image",
+      "parent": "LINE_A",
+      "label": "线稿",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "将已选设计表达为黑白结构线稿，保留脸、手和服装连接。"
+    },
+    {
+      "id": "LINE_C",
+      "stage": "lineart",
+      "kind": "image",
+      "parent": "LINE_A",
+      "label": "线稿",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "将已选设计表达为黑白结构线稿，保留脸、手和服装连接。"
+    },
+    {
+      "id": "FLAT_A",
+      "stage": "flat",
+      "kind": "image",
+      "parent": "selected_previous",
+      "label": "平涂",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "依据合格线稿划分固有色，保持服装边界，不加入光照效果。"
+    },
+    {
+      "id": "FLAT_B",
+      "stage": "flat",
+      "kind": "image",
+      "parent": "selected_previous",
+      "label": "平涂",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "依据合格线稿划分固有色，保持服装边界，不加入光照效果。"
+    },
+    {
+      "id": "FLAT_C",
+      "stage": "flat",
+      "kind": "image",
+      "parent": "selected_previous",
+      "label": "平涂",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "依据合格线稿划分固有色，保持服装边界，不加入光照效果。"
+    },
+    {
+      "id": "LIGHT_A",
+      "stage": "lighting",
+      "kind": "image",
+      "parent": "selected_previous",
+      "label": "光影",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "基于已选线稿与平涂添加一致光影，区分皮肤、布料与金属。"
+    },
+    {
+      "id": "LIGHT_B",
+      "stage": "lighting",
+      "kind": "image",
+      "parent": "selected_previous",
+      "label": "光影",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "基于已选线稿与平涂添加一致光影，区分皮肤、布料与金属。"
+    },
+    {
+      "id": "LIGHT_C",
+      "stage": "lighting",
+      "kind": "image",
+      "parent": "selected_previous",
+      "label": "光影",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "基于已选线稿与平涂添加一致光影，区分皮肤、布料与金属。"
+    },
+    {
+      "id": "REFINE_A",
+      "stage": "refine",
+      "kind": "image",
+      "parent": "selected_previous",
+      "label": "精修",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "检查并修正已记录缺陷，保持身份、构图和固有色。"
+    },
+    {
+      "id": "REFINE_B",
+      "stage": "refine",
+      "kind": "image",
+      "parent": "selected_previous",
+      "label": "精修",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "检查并修正已记录缺陷，保持身份、构图和固有色。"
+    },
+    {
+      "id": "REFINE_C",
+      "stage": "refine",
+      "kind": "image",
+      "parent": "selected_previous",
+      "label": "精修",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "检查并修正已记录缺陷，保持身份、构图和固有色。"
+    },
+    {
+      "id": "CONSISTENCY",
+      "stage": "consistency",
+      "kind": "image",
+      "parent": "selected_previous",
+      "label": "一致性检查",
+      "description": "通用流程示例；请为实际项目替换设计内容。",
+      "prompt": "检查角色在另一构图中的设计保持，明确记录偏差。"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "mode": "review",
+  "status": "awaiting_design_and_pose",
+  "candidate_count": 1,
+  "attributes": [],
+  "style_version": null,
+  "stage_order": ["pose", "structure", "detail", "scene", "flat", "lighting", "refine"],
+  "anchors": {},
+  "stages": {
+    "pose": {"candidates": [], "selection": null},
+    "structure": {"candidates": [], "selection": null},
+    "detail": {"candidates": [], "selection": null},
+    "scene": {"candidates": [], "selection": null},
+    "flat": {"candidates": [], "selection": null},
+    "lighting": {"candidates": [], "selection": null},
+    "refine": {"candidates": [], "selection": null}
+  },
+  "artifacts": {}
+}

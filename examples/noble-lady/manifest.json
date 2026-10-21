@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "title": "黑发金瞳 · 贵族角色案例",
+  "image_count": 8,
+  "model": "UNKNOWN_BUILTIN",
+  "human_artistic_approval": false,
+  "publication_scope": "Images approved for this repository display; no general reuse license specified. Original prompts, conversation and machine paths omitted.",
+  "images": [
+    {
+      "id": "COMPO_N1",
+      "file": "images/COMPO_N1.png",
+      "label": "构图与姿态",
+      "note": "先观察站姿、轮廓和持物关系。",
+      "sha256": "ace95e4f4be1d699c1f96135fe935ad322f08ea1cc0547081437c0ac4a16ec8e",
+      "width": 1024,
+      "height": 1536,
+      "selected_in_trial": true,
+      "failed_candidate": false
+    },
+    {
+      "id": "DIRECT_N1",
+      "file": "images/DIRECT_N1.png",
+      "label": "直接成图",
+      "note": "保留完整成图作为比较基线。",
+      "sha256": "72017ea933c8863f6194e99f2175d06abffde49a1eb46779191f6f8ab41934fa",
+      "width": 1024,
+      "height": 1536,
+      "selected_in_trial": true,
+      "failed_candidate": false
+    },
+    {
+      "id": "LINE_N1",
+      "file": "images/LINE_N1.png",
+      "label": "结构线稿",
+      "note": "整理服装结构与主要褶皱。",
+      "sha256": "40a3c1625802bb68ff763aa246e1399701dfb9171cbc6c1bf4966b983fdc0b55",
+      "width": 1024,
+      "height": 1536,
+      "selected_in_trial": true,
+      "failed_candidate": false
+    },
+    {
+      "id": "FLAT_N1",
+      "file": "images/FLAT_N1.png",
+      "label": "平涂 · 失败保留",
+      "note": "出现不符合设计的分色，未进入后续。",
+      "sha256": "aa68209ea6fe444820b09eae923a3c53bb5441b5b05005ad9817f00c913c5893",
+      "width": 1024,
+      "height": 1536,
+      "selected_in_trial": false,
+      "failed_candidate": true
+    },
+    {
+      "id": "FLAT_R1_N1",
+      "file": "images/FLAT_R1_N1.png",
+      "label": "修正平涂",
+      "note": "重新处理颜色区域后选用。",
+      "sha256": "c8cb0cd6e9c12aabda0b83fd5a49585b558a9a697d806221cfa84e99bd5ccea9",
+      "width": 1024,
+      "height": 1536,
+      "selected_in_trial": true,
+      "failed_candidate": false
+    },
+    {
+      "id": "LIGHT_N1",
+      "file": "images/LIGHT_N1.png",
+      "label": "光影 · 失败保留",
+      "note": "恢复了需要减少的衣料碎褶，未进入后续。",
+      "sha256": "97146968f95ad873bd56a64ab1b64d9d0fc6bc5418f1a69855de66c74c13a42c",
+      "width": 1024,
+      "height": 1536,
+      "selected_in_trial": false,
+      "failed_candidate": true
+    },
+    {
+      "id": "LIGHT_R1_N1",
+      "file": "images/LIGHT_R1_N1.png",
+      "label": "修正光影",
+      "note": "调整参考输入后重新处理光影。",
+      "sha256": "78729a36d5f49ce60253deec9e12783428c5becec39f43adb15f4befe78d832e",
+      "width": 1024,
+      "height": 1536,
+      "selected_in_trial": true,
+      "failed_candidate": false
+    },
+    {
+      "id": "FINAL_N1",
+      "file": "images/FINAL_N1.png",
+      "label": "最终候选",
+      "note": "完成本轮局部检查，仍待人工审美定稿。",
+      "sha256": "f036a8a0deb317faf2c17f581df69b57604d47c1925e8ee37c662b9206118634",
+      "width": 1024,
+      "height": 1536,
+      "selected_in_trial": true,
+      "failed_candidate": false
+    }
+  ]
+}
